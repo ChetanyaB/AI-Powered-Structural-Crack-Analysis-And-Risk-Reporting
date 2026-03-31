@@ -1,0 +1,8 @@
+names:
+  0: crack
+  1: pothole
+nc: 2
+path: D:\Defect_Detection\unified_dataset
+test: images/test
+train: images/train
+val: images/val

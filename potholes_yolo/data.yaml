@@ -1,0 +1,7 @@
+names:
+  0: pothole
+nc: 1
+path: D:\Defect_Detection\potholes_yolo
+test: images/test
+train: images/train
+val: images/val

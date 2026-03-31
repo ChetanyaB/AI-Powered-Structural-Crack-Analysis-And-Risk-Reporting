@@ -1,0 +1,16 @@
+ultralytics
+roboflow
+opencv-python-headless
+matplotlib
+numpy
+pandas
+pillow
+streamlit
+torch
+torchvision
+grad-cam
+shapely
+scikit-learn
+tqdm
+pyyaml
+python-dotenv

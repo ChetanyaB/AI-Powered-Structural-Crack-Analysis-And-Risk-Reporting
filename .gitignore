@@ -1,0 +1,13 @@
+# 🔹 Python cache
+__pycache__/
+
+
+# 🔹 Virtual environment
+detectenv/
+
+# 🔹 Logs & reports
+*.log
+audit_log.jsonl
+
+# 🔹 Training outputs (YOLO / ML experiments)
+reports/
