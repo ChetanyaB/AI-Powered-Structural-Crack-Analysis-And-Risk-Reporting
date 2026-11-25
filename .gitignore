@@ -11,3 +11,8 @@ audit_log.jsonl
 
 # 🔹 Training outputs (YOLO / ML experiments)
 reports/
+
+# Generated at runtime
+explanations/
+.pytest_cache/
+*.cache
