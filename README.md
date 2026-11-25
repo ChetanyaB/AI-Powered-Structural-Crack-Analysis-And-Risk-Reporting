@@ -11,8 +11,6 @@
   <img src="https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white"/>
   <img src="https://img.shields.io/badge/OpenCV-5C3EE8?logo=opencv&logoColor=white"/>
   <img src="https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Box%20mAP50-0.794-blue"/>
-  <img src="https://img.shields.io/badge/tests-19%20passed-brightgreen"/>
 </p>
 
 ---
@@ -153,21 +151,13 @@ Run with `pytest -v`. The tests use the trained weights and real validation imag
 
 Full output: [`docs/test_results.txt`](docs/test_results.txt).
 
-### 🐞 Issues found and fixed
-
-| Issue | Impact | Fix |
-|---|---|---|
-| `data.yaml` files pointed to `D:\Defect_Detection\...` | Training and validation **failed on any other machine** | Paths are now relative to the YAML file |
-| EigenCAM used the SVD component with an arbitrary sign | Heatmap was often **inverted** and highlighted the road instead of the defect | Component is oriented to follow activation strength (19% → 66% pointing game) |
-| Report saving relied on `"xai" in dir()` | Fragile check for whether a heatmap exists | Explicit `xai = None` initialisation |
-
----
-
 ## 🚀 Getting started
 
 ```bash
 git clone https://github.com/ChetanyaB/AI-Powered-Structural-Crack-Analysis-And-Risk-Reporting.git
 cd AI-Powered-Structural-Crack-Analysis-And-Risk-Reporting
+python -m venv venv                # create a virtual environment
+venv/Scripts/activate
 pip install -r requirements.txt
 
 streamlit run app.py               # web app
@@ -204,7 +194,3 @@ Optional `.env` settings: `MODEL_PATH`, `CONFIDENCE_THRESHOLD` (default 0.25), `
 
 `Python` · `Ultralytics YOLOv8` · `PyTorch` · `OpenCV` · `Shapely` · `NumPy` · `Streamlit` · `EigenCAM (XAI)` · `pytest`
 
-## 👤 Author
-
-**Chetanya Bhadravati** · M.Tech AI & ML, Symbiosis Institute of Technology
-[LinkedIn](https://www.linkedin.com/in/chetanya-bhadravati-8a3703292) · [GitHub](https://github.com/ChetanyaB)
