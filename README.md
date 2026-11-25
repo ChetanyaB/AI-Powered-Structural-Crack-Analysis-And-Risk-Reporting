@@ -157,7 +157,8 @@ Full output: [`docs/test_results.txt`](docs/test_results.txt).
 git clone https://github.com/ChetanyaB/AI-Powered-Structural-Crack-Analysis-And-Risk-Reporting.git
 cd AI-Powered-Structural-Crack-Analysis-And-Risk-Reporting
 python -m venv venv                # create a virtual environment
-venv/Scripts/activate
+venv/Scripts/activate              # Windows
+# source venv/bin/activate         # Linux / macOS
 pip install -r requirements.txt
 
 streamlit run app.py               # web app
