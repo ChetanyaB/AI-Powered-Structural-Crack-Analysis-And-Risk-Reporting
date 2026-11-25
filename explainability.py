@@ -60,6 +60,7 @@ def generate_explanation(yolo_model, image_bgr, detections, save_dir="explanatio
 
             # EigenCAM: first principal component
             reshaped = acts.reshape(acts.shape[0], -1).astype(np.float64)
+            energy   = np.abs(reshaped).mean(axis=0)   # overall activation strength per pixel
             reshaped -= reshaped.mean(axis=1, keepdims=True)
 
             try:
@@ -67,6 +68,11 @@ def generate_explanation(yolo_model, image_bgr, detections, save_dir="explanatio
                 cam_flat     = Vt[0].astype(np.float32)
             except np.linalg.LinAlgError:
                 cam_flat     = reshaped.mean(axis=0).astype(np.float32)
+
+            # SVD returns the component with an arbitrary sign; orient it so that
+            # high values follow strong activations (otherwise the map can be inverted).
+            if np.dot(cam_flat - cam_flat.mean(), energy - energy.mean()) < 0:
+                cam_flat = -cam_flat
 
             cam = cam_flat.reshape(acts.shape[1], acts.shape[2])
             cam = np.maximum(cam, 0)

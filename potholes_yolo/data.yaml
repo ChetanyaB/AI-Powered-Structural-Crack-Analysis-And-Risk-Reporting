@@ -1,7 +1,7 @@
 names:
   0: pothole
 nc: 1
-path: D:\Defect_Detection\potholes_yolo
+# "path" omitted: Ultralytics uses the folder containing this file as the dataset root
 test: images/test
 train: images/train
 val: images/val

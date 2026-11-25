@@ -87,6 +87,8 @@ if uploaded is not None:
             annotated  = detector.annotate_image(image_bgr, detections)
             annotated_rgb = cv2.cvtColor(annotated, cv2.COLOR_BGR2RGB)
 
+        xai = None  # filled in by the EigenCAM tab when enabled
+
         # ── Results tabs ──────────────────────────────────────────────────────
         tab1, tab2, tab3, tab4 = st.tabs([
             "📸 Annotated Result",
@@ -187,8 +189,8 @@ if uploaded is not None:
                 from ethics import generate_ethics_report
                 from report import generate_report
                 ethics = generate_ethics_report(detections)
-                xai_text = xai["summary"] if show_heatmap and "xai" in dir() else "Heatmap disabled"
-                heatmap_save = xai["heatmap_bgr"] if show_heatmap and "xai" in dir() else image_bgr
+                xai_text = xai["summary"] if xai else "Heatmap disabled"
+                heatmap_save = xai["heatmap_bgr"] if xai else image_bgr
                 paths = generate_report(
                     image_path=uploaded.name,
                     annotated_image=annotated,
